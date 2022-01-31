@@ -1,0 +1,12 @@
+{
+  "name": "nest-graphql-prisma-jwt",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "node",
+
+  "workspaceFolder": "/src",
+
+  "settings": {
+
+  },
+  "extensions": []
+}
