@@ -13,7 +13,7 @@ export class AuthService {
     private jwtService: JwtService
   ){}
 
-  async valitedateUser(email: string, password: string): Promise<User | null> {
+  async validateUser(email: string, password: string): Promise<User | null> {
     const user = await this.usersService.findUnique({ where: { email: email } })
     
     if (user && bcript.compareSync(password, user.password)) {
