@@ -9,8 +9,7 @@ export class User {
     @Field(() => ID, {nullable:false})
     id!: number;
 
-    /** @Validator.@IsEmail() */
-    @Field(() => String, {nullable:false,description:'@Validator.@IsEmail()'})
+    @Field(() => String, {nullable:false})
     email!: string;
 
     @Field(() => String, {nullable:false})

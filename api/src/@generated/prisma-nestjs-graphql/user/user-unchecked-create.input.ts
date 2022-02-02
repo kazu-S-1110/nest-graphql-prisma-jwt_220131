@@ -11,6 +11,7 @@ export class UserUncheckedCreateInput {
     id?: number;
 
     @Field(() => String, {nullable:false})
+    @Validator.IsEmail()
     email!: string;
 
     @Field(() => String, {nullable:false})
