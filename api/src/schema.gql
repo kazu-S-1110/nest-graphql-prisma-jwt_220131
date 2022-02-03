@@ -4,10 +4,13 @@
 
 type User {
   id: ID!
-
-  """@Validator.@IsEmail()"""
   email: String!
   name: String!
+}
+
+type LoginResponse {
+  access_token: String!
+  user: User!
 }
 
 type Query {
@@ -102,10 +105,16 @@ enum UserScalarFieldEnum {
 
 type Mutation {
   createUser(data: UserCreateInput!): User!
+  login(loginUserInput: LoginUserInput!): LoginResponse!
 }
 
 input UserCreateInput {
   email: String!
   name: String!
+  password: String!
+}
+
+input LoginUserInput {
+  email: String!
   password: String!
 }
