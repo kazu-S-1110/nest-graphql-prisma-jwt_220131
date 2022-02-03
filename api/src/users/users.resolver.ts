@@ -1,8 +1,10 @@
+import { UseGuards } from '@nestjs/common'
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import * as bcript from "bcrypt"
 import { CreateOneUserArgs } from 'src/@generated/prisma-nestjs-graphql/user/create-one-user.args'
 import { FindFirstUserArgs } from 'src/@generated/prisma-nestjs-graphql/user/find-first-user.args'
 import { User } from 'src/@generated/prisma-nestjs-graphql/user/user.model'
+import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard'
 import { UsersService } from './users.service'
 
 
@@ -11,6 +13,7 @@ export class UsersResolver {
   constructor(private readonly userService: UsersService) {}
 
   @Query(() => User)
+    @UseGuards(JwtAuthGuard)
   user(
     @Args() args: FindFirstUserArgs
   ) {
